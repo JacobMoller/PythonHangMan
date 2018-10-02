@@ -12,4 +12,4 @@ print(dkWord)
 for i in range(len(dkWord)):
     print("_", end=" ")
 
-hangmanascii.hangman(3)
+hangmanascii.hangman(7)
