@@ -1,13 +1,5 @@
 # Python Hangman Game
 A python hangman game with random list of words. Build in Python 3.7.0
-
-    ————
-    |            |
-    |           ○
-    |        / ◜◝ \
-    |          ◟◞                
-  / | \       /    \
-/   |   \
 ## Getting Started
 These instructions will help you download and run the game.
 ### Download
