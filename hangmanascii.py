@@ -1,0 +1,18 @@
+def hangmanOne():
+    print("")
+    print("    ————--")
+    print("    |    |")
+    print("    |     ")
+    print("    |        ")
+    print("    |     ")
+    print("  / | \       ")
+    print("/   |   \ ")
+def hangmanTwo():
+    print("")
+    print("    ————--")
+    print("    |    |")
+    print("    |    ○")
+    print("    |        ")
+    print("    |     ")
+    print("  / | \       ")
+    print("/   |   \ ")
