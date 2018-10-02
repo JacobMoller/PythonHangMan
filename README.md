@@ -9,7 +9,8 @@ These instructions will help you download and run the game.
 3. Open *game.py* in the python IDLE
 
 ### The game
-
+#### Gamemodes
+The game can be played in both *Danish* and *English*.
 ## Authors
 - Jacob Møller Jensen - [Contact](https://twitter.com/JacobMollerJ)
 - Oliver Thejl Eriksen
