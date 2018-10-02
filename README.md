@@ -11,5 +11,5 @@ These instructions will help you download and run the game.
 ### The game
 
 ## Authors
-- Jacob Møller Jensen
+- Jacob Møller Jensen - [Contact](https://twitter.com/JacobMollerJ)
 - Oliver Thejl Eriksen
