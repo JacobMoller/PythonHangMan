@@ -5,11 +5,20 @@
 import random
 import hangmanascii
 
-word = "placeholder" #Make word a global variable. Value will be overwritten.
+#Global variables.
+word = "placeholder" #The word to guess, value will be overwritten.
+lives = 6 #Number of lives left
 
+def GameOver(Lost):
+    if (Lost):
+        Print("Game over, you lost!")
+    else:
+        Print("Congratulations, you won!")
 
 def LoseLife():
     lives -= 1
+    if(lives == 0):
+        GameOver(True)
 
 def RevealLetters():
     print("hey")
@@ -19,7 +28,7 @@ def GuessLetter(letter):
     index = [] #List of indexes for where the letter appears
     lastFound = -1
     while True:
-        lastFound = dkWord.find(letter, lastFound + 1)
+        lastFound = word.find(letter, lastFound + 1)
         if(lastFound != -1):
             index.append(lastFound)
         else:
@@ -42,7 +51,7 @@ def StartGame():
 
     #Prints underscores the number of letters
     print("Word to guess:")
-    for i in range(len(dkWord)):
+    for i in range(len(word)):
         print("_", end=" ")
     print("")
     print("")
