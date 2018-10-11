@@ -4,26 +4,32 @@
 
 import random
 import hangmanascii
+import os
 
 #Global variables.
 word = "placeholder" #The word to guess, value will be overwritten.
+shownLetters = []
+usedLetters = []
 lives = 6 #Number of lives left
 
-def GameOver(Lost):
-    if (Lost):
-        Print("Game over, you lost!")
-    else:
-        Print("Congratulations, you won!")
+def StartGame():
+    #TODO: Import wordlist
+    dkWordList = ["sporvogn", "SKOLE"]
+    for i in range(len(dkWordList)):
+        dkWordList[i] = dkWordList[i].upper()
+    #Chooses a random word in the wordlist array
+    index = random.randint(0, len(dkWordList)-1)
+    #Selects the text based on the number
+    global word
+    global shownLetters
+    word = dkWordList[index]
+    shownLetters = ["_"]*len(word)
+    #Prints underscores the number of letters
+    Draw()
+    GuessLetter()
 
-def LoseLife():
-    lives -= 1
-    if(lives == 0):
-        GameOver(True)
-
-def RevealLetters():
-    print("hey")
-
-def GuessLetter(letter):
+def GuessLetter():
+    letter = input("Guess a letter: ")
     letter = letter.upper() #Make letter uppercase
     index = [] #List of indexes for where the letter appears
     lastFound = -1
@@ -33,37 +39,51 @@ def GuessLetter(letter):
             index.append(lastFound)
         else:
             break
-    print(index)
     if (len(index) == 0):
-        LoseLife();
+        LoseLife()
     else:
         RevealLetters(letter, index)
 
-def StartGame():
-    #Import wordlist
-    dkWordList = ["sporvogn", "SKOLE", "HEJ"]
-    for i in range(len(dkWordList)):
-        dkWordList[i] = dkWordList[i].upper()
-    #Chooses a random word in the wordlist array
-    index = random.randint(0, len(dkWordList)-1)
-    #Selects the text based on the number
-    word = dkWordList[index]
+def LoseLife():
+    global lives
+    lives -= 1
+    if(lives == 0):
+        GameOver(True)
+    else:
+        Draw()
+        GuessLetter()
 
-    #Prints underscores the number of letters
-    print("Word to guess:")
+def GameOver(lost):
+    if (lost):
+        print("Game over, you lost!")
+    else:
+        print("Congratulations, you won!")
+
+def RevealLetters(letter, index):
+    global shownLetters
+    for i in range(len(index)):
+        shownLetters[index[i]] = letter
+    Draw()
+    if("_" not in shownLetters):
+        GameOver(False)
+    else:
+        GuessLetter()
+
+def Draw():
+    Clear()
     for i in range(len(word)):
-        print("_", end=" ")
+        print(shownLetters[i], end=" ")
     print("")
+    print("Liv tilbage: ", lives)
     print("")
-    wrongLetters = []
-    #Calling hangman animation after 7 errors (wrong letters)
-    hangmanascii.hangman(6)
-    GuessLetter(input("Guess a letter"))
+    #Calling hangman drawing
+    hangmanascii.hangman(lives)
 
+def Clear():
+    os.system("cls")
+
+#Initialize game
 StartGame()
 
-
-
-input("Enter to exit") #Dont exit before user presses enter
-#Prints the word that the user should guess TEMPORARY
-#print(dkWord)
+#Dont exit before user presses enter
+input("Enter to exit")
