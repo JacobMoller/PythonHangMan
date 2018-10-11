@@ -55,6 +55,7 @@ def LoseLife():
 
 def GameOver(lost):
     if (lost):
+        Draw()
         print("Game over, you lost!")
     else:
         print("Congratulations, you won!")
@@ -77,7 +78,7 @@ def Draw():
     print("Liv tilbage: ", lives)
     print("")
     #Calling hangman drawing
-    hangmanascii.hangman(lives)
+    hangmanascii.hangman(7 - lives)
 
 def Clear():
     os.system("cls")
