@@ -1,1 +1,1 @@
-skole,sporvogn
+skole,sporvogn,hegn

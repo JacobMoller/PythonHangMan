@@ -11,28 +11,38 @@ import os
 word = "placeholder" #The word to guess, value will be overwritten.
 shownLetters = [] #Array that stores what letters of the word has been shown.
 usedLetters = [] #Array that stores the letters already guessed.
+bannedLetters = ["",",",".","*"]
 lives = 6 #Number of lives left.
 
 def StartGame():
     #TODO: Import wordlist
     dkWordList = ["sporvogn", "skole"]
-    for i in range(len(dkWordList)):
-        #Change all letters to uppercase
-        dkWordList[i] = dkWordList[i].upper()
+    #dkWordList = split(open("words.txt","r"),",")
+   # with open('words.txt','r') as f:
+   #     for line in f:
+   #         for word in line.split():
+   #             print(word)
     #Chooses a random word in the wordlist array
     index = random.randint(0, len(dkWordList)-1)
     #Selects the text based on the number
     global word
     global shownLetters
-    word = dkWordList[index]
+    word = dkWordList[index].upper()
     shownLetters = ["_"]*len(word)
-    #Prints underscores the number of letters
+    #Draw gamescreen and start game algorhytm with GuessLetter()
     Draw()
     GuessLetter()
 
 def GuessLetter():
-    letter = input("Gæt et bogstav: ")
-    letter = letter.upper() #Make letter uppercase (to match word)
+    letter = input("Gæt et bogstav: ")[0] #Prompt a guess from user.
+    letter = letter.upper() #Make letter uppercase (to match word).
+    while (letter in usedLetters or letter in bannedLetters):
+        #If letter has already been used, prompt for a new one.
+        Draw()
+        letter = input("Gæt et bogstav: ")[0]
+        letter = letter.upper()
+
+    usedLetters.append(letter)
     index = [] #List of indexes for where the letter appears
     lastFound = -1
     while True:
@@ -63,7 +73,7 @@ def GameOver(lost):
         Draw()
         print("Game over, du tabte!")
     else:
-        print("Tillyke, du vandt!")
+        print("Tillykke, du vandt!")
 
 def RevealLetters(letter, index):
     global shownLetters
@@ -87,6 +97,11 @@ def Draw():
     #Calling hangman drawing
     hangmanascii.hangman(7 - lives)
     print("")
+    print("Brugte bogstaver:", end=" ")
+    for i in range(len(usedLetters)):
+        print(usedLetters[i], end=" ")
+    print("")
+    print("")
 
 def Clear():
     os.system("cls")
@@ -95,4 +110,5 @@ def Clear():
 StartGame()
 
 #Dont exit before user presses enter
+print("")
 input("Enter to exit")
