@@ -2,20 +2,22 @@
 #Author: Jacob Møller & Oliver Thejl Eriksen
 #Updated: 2/10 2018
 
+#Import libraries and hangman text.
 import random
 import hangmanascii
 import os
 
 #Global variables.
 word = "placeholder" #The word to guess, value will be overwritten.
-shownLetters = []
-usedLetters = []
-lives = 6 #Number of lives left
+shownLetters = [] #Array that stores what letters of the word has been shown.
+usedLetters = [] #Array that stores the letters already guessed.
+lives = 6 #Number of lives left.
 
 def StartGame():
     #TODO: Import wordlist
-    dkWordList = ["sporvogn", "SKOLE"]
+    dkWordList = ["sporvogn", "skole"]
     for i in range(len(dkWordList)):
+        #Change all letters to uppercase
         dkWordList[i] = dkWordList[i].upper()
     #Chooses a random word in the wordlist array
     index = random.randint(0, len(dkWordList)-1)
@@ -29,19 +31,22 @@ def StartGame():
     GuessLetter()
 
 def GuessLetter():
-    letter = input("Guess a letter: ")
-    letter = letter.upper() #Make letter uppercase
+    letter = input("Gæt et bogstav: ")
+    letter = letter.upper() #Make letter uppercase (to match word)
     index = [] #List of indexes for where the letter appears
     lastFound = -1
     while True:
+        #Iterate through word, searching for letter.
         lastFound = word.find(letter, lastFound + 1)
         if(lastFound != -1):
             index.append(lastFound)
         else:
             break
     if (len(index) == 0):
+        #If the letter couldnt be found in word, lose a life.
         LoseLife()
     else:
+        #Reveal
         RevealLetters(letter, index)
 
 def LoseLife():
@@ -56,9 +61,9 @@ def LoseLife():
 def GameOver(lost):
     if (lost):
         Draw()
-        print("Game over, you lost!")
+        print("Game over, du tabte!")
     else:
-        print("Congratulations, you won!")
+        print("Tillyke, du vandt!")
 
 def RevealLetters(letter, index):
     global shownLetters
@@ -72,13 +77,16 @@ def RevealLetters(letter, index):
 
 def Draw():
     Clear()
+    print("Ord:", end=" ")
     for i in range(len(word)):
         print(shownLetters[i], end=" ")
+    print("")
     print("")
     print("Liv tilbage: ", lives)
     print("")
     #Calling hangman drawing
     hangmanascii.hangman(7 - lives)
+    print("")
 
 def Clear():
     os.system("cls")
