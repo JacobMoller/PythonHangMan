@@ -1,7 +1,7 @@
 def hangman(x):
     if (x == 1):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |     ")
         print("  |        ")
@@ -10,7 +10,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 2):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |        ")
@@ -19,7 +19,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 3):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |   ◜")
@@ -28,7 +28,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 4):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |   ◜◝")
@@ -37,7 +37,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 5):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |   ◜◝")
@@ -46,7 +46,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 6):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |   ◜◝")
@@ -55,7 +55,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 7):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |  /◜◝")
@@ -64,7 +64,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 8):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |  /◜◝\ ")
@@ -73,7 +73,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 9):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |  /◜◝\ ")
@@ -82,7 +82,7 @@ def hangman(x):
         print("/ | \ ")
     elif (x == 10):
         print("")
-        print("  ————--")
+        print("  ——————")
         print("  |    |")
         print("  |    ○")
         print("  |  /◜◝\ ")
