@@ -18,7 +18,7 @@ def StartGame():
     global word
     global shownLetters
     #Opens our wordlist file and defines that we would like to read (r)
-    f = open("longlist.txt","r")
+    f = open("words.txt","r")
     wordList = [] #Makes an empty array
     for line in f: #Splits each line into a value in our array
         #Insert each line as value and strips new line
