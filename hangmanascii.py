@@ -22,11 +22,38 @@ def hangman(x):
         print("  ————--")
         print("  |    |")
         print("  |    ○")
+        print("  |   ◜")
+        print("  |   ")
+        print(" /|\       ")
+        print("/ | \ ")
+    elif (x == 4):
+        print("")
+        print("  ————--")
+        print("  |    |")
+        print("  |    ○")
+        print("  |   ◜◝")
+        print("  |   ")
+        print(" /|\       ")
+        print("/ | \ ")
+    elif (x == 5):
+        print("")
+        print("  ————--")
+        print("  |    |")
+        print("  |    ○")
+        print("  |   ◜◝")
+        print("  |   ◟")
+        print(" /|\       ")
+        print("/ | \ ")
+    elif (x == 6):
+        print("")
+        print("  ————--")
+        print("  |    |")
+        print("  |    ○")
         print("  |   ◜◝")
         print("  |   ◟◞")
         print(" /|\       ")
         print("/ | \ ")
-    elif (x == 4):
+    elif (x == 7):
         print("")
         print("  ————--")
         print("  |    |")
@@ -35,7 +62,7 @@ def hangman(x):
         print("  |   ◟◞")
         print(" /|\       ")
         print("/ | \ ")
-    elif (x == 5):
+    elif (x == 8):
         print("")
         print("  ————--")
         print("  |    |")
@@ -44,7 +71,7 @@ def hangman(x):
         print("  |   ◟◞")
         print(" /|\       ")
         print("/ | \ ")
-    elif (x == 6):
+    elif (x == 9):
         print("")
         print("  ————--")
         print("  |    |")
@@ -53,7 +80,7 @@ def hangman(x):
         print("  |   ◟◞")
         print(" /|\ /")
         print("/ | \ ")
-    elif (x == 7):
+    elif (x == 10):
         print("")
         print("  ————--")
         print("  |    |")

@@ -12,12 +12,12 @@ word = "placeholder" #The word to guess, value will be overwritten.
 shownLetters = [] #Array that stores what letters of the word has been shown.
 usedLetters = [] #Array that stores the letters already guessed.
 bannedLetters = ["",",",".","*"]
-lives = 6 #Number of lives left.
+lives = 10 #Number of lives left.
 
 
 def StartGame():
     #Import word-list
-    f = open("words.txt","r") #Opens our list file and defines that we would like to read (r)
+    f = open("longlist.txt","r") #Opens our list file and defines that we would like to read (r)
     dkWordList = [] #Makes an empty array
     for line in f: #Splits each line into a value in our array
         dkWordList.append(line.rstrip()) #Insert each line as value and strips new line
@@ -97,7 +97,7 @@ def Draw():
     print("Liv tilbage: ", lives)
     print("")
     #Calling hangman drawing
-    hangmanascii.hangman(7 - lives)
+    hangmanascii.hangman(11 - lives)
     print("")
     print("Brugte bogstaver:", end=" ")
     for i in range(len(usedLetters)):
