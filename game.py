@@ -14,19 +14,19 @@ usedLetters = [] #Array that stores the letters already guessed.
 bannedLetters = ["",",",".","*"]
 lives = 6 #Number of lives left.
 
+
 def StartGame():
-    #TODO: Import wordlist
-    dkWordList = ["sporvogn", "skole"]
-    #dkWordList = split(open("words.txt","r"),",")
-   # with open('words.txt','r') as f:
-   #     for line in f:
-   #         for word in line.split():
-   #             print(word)
+    #Import word-list
+    f = open("words.txt","r") #Opens our list file and defines that we would like to read (r)
+    dkWordList = [] #Makes an empty array
+    for line in f: #Splits each line into a value in our array
+        dkWordList.append(line.rstrip()) #Insert each line as value and strips new line
     #Chooses a random word in the wordlist array
     index = random.randint(0, len(dkWordList)-1)
     #Selects the text based on the number
     global word
     global shownLetters
+    
     word = dkWordList[index].upper()
     shownLetters = ["_"]*len(word)
     #Draw gamescreen and start game algorhytm with GuessLetter()
@@ -69,9 +69,11 @@ def LoseLife():
         GuessLetter()
 
 def GameOver(lost):
+    global word
     if (lost):
         Draw()
         print("Game over, du tabte!")
+        print("Ordet var: " + word)
     else:
         print("Tillykke, du vandt!")
 
